@@ -6,7 +6,7 @@ weex-pack：方便生成 Native，启动模拟器进行效果预览，但没有�
 
 weex-toolkit: 方便 debug，官方手册指定方法，默认生成 Vue，但没有办法生成 Native 安装包。
 
-```
+```bash
 yarn # 也可以使用npm install
 
 # run ios
