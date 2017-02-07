@@ -7,25 +7,25 @@
 </template>
 
 <style>
-  .container{
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .bannar-image{
+  .bannar-image {
     width:200;
     height:200;
   }
 
-  .message{
+  .message {
     padding-top: 20;
     padding-bottom: 40;
     color: #0055dd;
     font-size: 28; 
   }
   
-  .quotes{
+  .quotes {
     font-size: 16;
     color:#666; 
   }
