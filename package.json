@@ -7,7 +7,8 @@
     "build": "webpack",
     "build_plugin": "webpack --config ./tools/webpack.config.plugin.js --color",
     "dev": "webpack --watch",
-    "serve": "serve -p 8080"
+    "serve": "serve -p 8080",
+    "debug": "weex-devtool"
   },
   "keywords": [
     "weex"
@@ -24,6 +25,7 @@
     "vue-loader": "^10.0.2",
     "vue-template-compiler": "^2.1.10",
     "webpack": "^1.13.2",
+    "weex-devtool": "^0.2.76",
     "weex-loader": "^0.4.1",
     "weex-vue-loader": "^0.2.8",
     "weex-vue-render": "^0.1.8"
