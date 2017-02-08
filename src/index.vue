@@ -14,20 +14,20 @@
   }
 
   .bannar-image {
-    width:200;
-    height:200;
+    width: 200px;
+    height: 200px;
   }
 
   .message {
-    padding-top: 20;
-    padding-bottom: 40;
+    padding-top: 20px;
+    padding-bottom: 40px;
     color: #0055dd;
-    font-size: 28; 
+    font-size: 28px;
   }
-  
+
   .quotes {
-    font-size: 16;
-    color:#666; 
+    font-size: 16px;
+    color: #666;
   }
 </style>
 

@@ -4,7 +4,7 @@
 
 ## 概述
 
-weex-pack：方便生成 Native，启动模拟器进行效果预览，但没有对应 debug 指令，默认为 .we。
+weexpack：方便生成 Native，启动模拟器进行效果预览，但没有对应 debug 指令，默认为 .we。
 
 weex-toolkit: 方便 debug，官方手册指定方法，默认生成 Vue，但没有办法生成 Native 安装包。
 
@@ -17,7 +17,12 @@ weexpack run ios
 
 # dev
 npm run dev
-npm run serve # 按需在根目录配置 config.js
+open http://0.0.0.0:8080/
+```
+
+## 显示二维码
+```bash
+open http://0.0.0.0:8080/qrcode.html
 ```
 
 ## 使用说明
@@ -45,14 +50,7 @@ clone 之后只需要修改 src 目录下的文件即可，enjoy it!
 │   └── README.md
 ├── src           // 业务代码（vue文件）目录
 │   └── index.vue
-├── start
-├── start.bat
-├── index.html
-├── web // Web 版资源文件
-│   ├── assets
-│   ├── index.html
-│   ├── index.js
-│   └── js
-│       └── init.js
+├── index.tpl
+├── qrcode.tpl
 └── webpack.config.js
 ```
