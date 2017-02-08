@@ -5,7 +5,7 @@ var htmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = function getBaseConfig (loader, isDev) {
   return {
     output: {
-      path: resolve(__dirname, 'dist'),
+      path: resolve(__dirname, '../dist'),
       filename: '[name].' + (loader === 'vue' ? 'web' : loader) + '.js'
     },
     externals: loader === 'weex' ? {
