@@ -4,7 +4,7 @@ var webConfig = base('vue')
 var weexConfig = base('weex')
 
 webConfig.entry = {
-  app: ['./src/app.js']
+  app: ['./src/render.js', './src/app.js']
 }
 weexConfig.entry = {
   app: ['./src/app.js']
