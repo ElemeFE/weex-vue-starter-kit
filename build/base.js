@@ -44,11 +44,11 @@ module.exports = function getBaseConfig (loader, isDev) {
       }),
       new webpack.LoaderOptionsPlugin({
         vue: {
-          // You can use PostCSS now!
-          // Take cssnext for example:
-          // 1. npm install postcss-cssnext --save-dev
-          // 2. write `var cssnext = require('postcss-cssnext')` at the top
-          // 3. set the config below
+          // // You can use PostCSS now!
+          // // Take cssnext for example:
+          // // 1. npm install postcss-cssnext --save-dev
+          // // 2. write `var cssnext = require('postcss-cssnext')` at the top
+          // // 3. set the config below
           // postcss: [cssnext({
           //   features: {
           //     autoprefixer: false
