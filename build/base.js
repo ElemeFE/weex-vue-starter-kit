@@ -15,15 +15,19 @@ module.exports = function getBaseConfig (loader, isDev) {
     } : {},
     module: {
       rules: [
-        {
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          enforce: 'pre',
-          include: [resolve(__dirname, 'src')],
-          options: {
-            formatter: require('eslint-friendly-formatter')
-          }
-        },
+        // You can use eslint here
+        // Take eslint-plugin-vue as an example
+        // 1. npm i babel-eslint babel-plugin-transform-runtime babel-runtime babel-preset-stage-2 eslint eslint-config-vue eslint-friendly-formatter eslint-loader eslint-plugin-html eslint-plugin-promise eslint-plugin-vue -D
+        // 2. set the config below
+        // {
+        //   test: /\.(js|vue)$/,
+        //   loader: 'eslint-loader',
+        //   enforce: 'pre',
+        //   include: [resolve(__dirname, 'src')],
+        //   options: {
+        //     formatter: require('eslint-friendly-formatter')
+        //   }
+        // },
         {
           test: /\.js$/,
           loader: 'babel-loader',
@@ -34,11 +38,6 @@ module.exports = function getBaseConfig (loader, isDev) {
         }
       ]
     },
-    resolve: {
-      alias: {
-        'vue$': 'vue/dist/vue.runtime.js'
-      }
-    },
     plugins: [
       new webpack.BannerPlugin({
         banner: '// { "framework": "Vue" }\n',
@@ -46,11 +45,16 @@ module.exports = function getBaseConfig (loader, isDev) {
       }),
       new webpack.LoaderOptionsPlugin({
         vue: {
-          postcss: [cssnext({
-            features: {
-              autoprefixer: false
-            }
-          })]
+          // You can use PostCSS now!
+          // Take cssnext for example:
+          // 1. npm install postcss-cssnext --save-dev
+          // 2. write `var cssnext = require('postcss-cssnext')` at the top
+          // 3. set the config below
+          // postcss: [cssnext({
+          //   features: {
+          //     autoprefixer: false
+          //   }
+          // })]
         }
       })
     ].concat(isDev ? [
