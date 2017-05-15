@@ -1,6 +1,5 @@
 var resolve = require('path').resolve
 var webpack = require('webpack')
-var cssnext = require('postcss-cssnext')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = function getBaseConfig (loader, isDev) {
