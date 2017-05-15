@@ -4,12 +4,13 @@ var base = require('./base')
 var webConfig = base('vue', true)
 var weexConfig = base('weex', true)
 
+var port = process.env.PORT | 8080
 webConfig.entry = {
   app: [
     './src/render.js',
     './src/app.js',
     'webpack/hot/dev-server',
-    'webpack-dev-server/client/?http://0.0.0.0:8080'
+    'webpack-dev-server/client/?http://0.0.0.0:' + port
   ]
 }
 webConfig.plugins.push(new webpack.HotModuleReplacementPlugin())
@@ -20,9 +21,11 @@ weexConfig.entry = {
 }
 
 new devServer(webpack([webConfig, weexConfig]), {
-  port: 8080,
+  port: port,
   host: '0.0.0.0',
+  // disable host check to avoid `Invalid Host header` issue
+  disableHostCheck: true,
   hot: true,
   stats: { colors: true }
-}).listen('8080', '0.0.0.0')
-console.log('Project is running at http://0.0.0.0:8080/')
+}).listen('' + port, '0.0.0.0')
+console.log('Project is running at http://0.0.0.0:' + port + '/')

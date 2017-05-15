@@ -1,6 +1,7 @@
 var resolve = require('path').resolve
 var webpack = require('webpack')
-var htmlWebpackPlugin = require('html-webpack-plugin')
+var cssnext = require('postcss-cssnext')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = function getBaseConfig (loader, isDev) {
   return {
@@ -14,6 +15,15 @@ module.exports = function getBaseConfig (loader, isDev) {
     } : {},
     module: {
       rules: [
+        {
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          enforce: 'pre',
+          include: [resolve(__dirname, 'src')],
+          options: {
+            formatter: require('eslint-friendly-formatter')
+          }
+        },
         {
           test: /\.js$/,
           loader: 'babel-loader',
@@ -36,16 +46,11 @@ module.exports = function getBaseConfig (loader, isDev) {
       }),
       new webpack.LoaderOptionsPlugin({
         vue: {
-          // // You can use PostCSS now!
-          // // Take cssnext for example:
-          // // 1. npm install postcss-cssnext --save-dev
-          // // 2. write `var cssnext = require('postcss-cssnext')` at the top
-          // // 3. set the config below
-          // postcss: [cssnext({
-          //   features: {
-          //     autoprefixer: false
-          //   }
-          // })]
+          postcss: [cssnext({
+            features: {
+              autoprefixer: false
+            }
+          })]
         }
       })
     ].concat(isDev ? [
@@ -55,15 +60,15 @@ module.exports = function getBaseConfig (loader, isDev) {
           IP: JSON.stringify(require('ip').address())
         }
       }),
-      new htmlWebpackPlugin({
-        filename: 'qrcode.html',
-        template: 'qrcode.tpl',
+      new HtmlWebpackPlugin({
+        filename: 'web/qrcode.html',
+        template: 'web/qrcode.tpl',
         chunks: []
       })
     ] : [])
     .concat(loader === 'vue' ? [
-      new htmlWebpackPlugin({
-        template: 'index.tpl'
+      new HtmlWebpackPlugin({
+        template: 'web/index.tpl'
       }),
       new webpack.ProvidePlugin({
         Vue: 'vue/dist/vue.runtime.js'
