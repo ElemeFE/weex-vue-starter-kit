@@ -22,7 +22,7 @@ module.exports = function getBaseConfig (loader, isDev) {
         //   test: /\.(js|vue)$/,
         //   loader: 'eslint-loader',
         //   enforce: 'pre',
-        //   include: [resolve(__dirname, 'src')],
+        //   include: [resolve(__dirname, '../src')],
         //   options: {
         //     formatter: require('eslint-friendly-formatter')
         //   }
@@ -36,6 +36,11 @@ module.exports = function getBaseConfig (loader, isDev) {
           loader: loader + '-loader'
         }
       ]
+    },
+    resolve: {
+      alias: {
+        'vue$': 'vue/dist/vue.runtime.js'
+      }
     },
     plugins: [
       new webpack.BannerPlugin({
