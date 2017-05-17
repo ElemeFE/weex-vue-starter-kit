@@ -1,6 +1,6 @@
 var resolve = require('path').resolve
 var webpack = require('webpack')
-var htmlWebpackPlugin = require('html-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = function getBaseConfig (loader, isDev) {
   return {
@@ -14,6 +14,19 @@ module.exports = function getBaseConfig (loader, isDev) {
     } : {},
     module: {
       rules: [
+        // You can use eslint here
+        // Take eslint-plugin-vue as an example
+        // 1. npm i babel-eslint babel-plugin-transform-runtime babel-runtime babel-preset-stage-2 eslint eslint-config-vue eslint-friendly-formatter eslint-loader eslint-plugin-html eslint-plugin-promise eslint-plugin-vue -D
+        // 2. set the config below
+        // {
+        //   test: /\.(js|vue)$/,
+        //   loader: 'eslint-loader',
+        //   enforce: 'pre',
+        //   include: [resolve(__dirname, '../src')],
+        //   options: {
+        //     formatter: require('eslint-friendly-formatter')
+        //   }
+        // },
         {
           test: /\.js$/,
           loader: 'babel-loader',
@@ -55,15 +68,15 @@ module.exports = function getBaseConfig (loader, isDev) {
           IP: JSON.stringify(require('ip').address())
         }
       }),
-      new htmlWebpackPlugin({
-        filename: 'qrcode.html',
-        template: 'qrcode.tpl',
+      new HtmlWebpackPlugin({
+        filename: 'web/qrcode.html',
+        template: 'web/qrcode.tpl',
         chunks: []
       })
     ] : [])
     .concat(loader === 'vue' ? [
-      new htmlWebpackPlugin({
-        template: 'index.tpl'
+      new HtmlWebpackPlugin({
+        template: 'web/index.tpl'
       }),
       new webpack.ProvidePlugin({
         Vue: 'vue/dist/vue.runtime.js'
